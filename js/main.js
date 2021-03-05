@@ -18,22 +18,25 @@
 
 var enterButton = document.getElementById('enter');
 var input = document.getElementById("userInput");
-var ul =document.querySelector("ul");
+var ul = document.querySelector("ul");
 
 //FUNCTIONS
 function addListAfterClick(){
-    if(input.value.leght>0){//longitud del input major que 0
+    if (input.value.length> 0){//longitud del input major que 0
         createListElement();
     }
 }
+//ha de cumplir les dues condicions. El event.which===13 reserca
 function addListAfterKeypress(event){
-    if(input.value.leght>0 && event.which === 13){//ha de cumplir les dues condicions. El event.which===13 reserca
+    if (input.value.leght>0 && event.which === 13){
         createListElement();
     }
 }
 function createListElement(){
     //crear elemento, nuevo item
     var li = document.createElement('li');
+    //Añadimos clase
+    li.className = "list-group-item";
     //Enganchamos el texto(la tarea)
     li .appendChild(document.createTextNode(input.value));
     //añadimos el elemento en el ul

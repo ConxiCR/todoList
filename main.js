@@ -21,6 +21,29 @@ var input = document.getElementById("userInput");
 var ul =document.querySelector("ul");
 
 //FUNCTIONS
+function addListAfterClick(){
+    if(input.value.leght>0){//longitud del input major que 0
+        createListElement();
+    }
+}
+function addListAfterKeypress(event){
+    if(input.value.leght>0 && event.which === 13){//ha de cumplir les dues condicions. El event.which===13 reserca
+        createListElement();
+    }
+}
+function createListElement(){
+    //crear elemento, nuevo item
+    var li = document.createElement('li');
+    //Enganchamos el texto(la tarea)
+    li .appendChild(document.createTextNode(input.value));
+    //añadimos el elemento en el ul
+    ul.appendChild(li);
+    //logica
 
+    //resultado
+
+}
 
 //EVENTS
+enterButton.addEventListener("click", addListAfterClick);
+input.addEventListener("keypress", addListAfterKeypress);//quan algun apreti una tecla es farà servir la funció del contingut del input
